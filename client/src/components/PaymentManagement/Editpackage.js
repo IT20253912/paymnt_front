@@ -101,7 +101,7 @@ function PackageList() {
           ))}
         </tbody>
       </table>
-      <div style={{ border: '1px solid #ccc', borderRadius: '5px', padding: '20px', marginTop: '20px' }}>
+      <div style={{ border: '1px solid #ccc', borderRadius: '5px', padding: '20px', marginTop: '20px' ,marginLeft:"100px",marginRight:"100px"}}>
         <h2 style={{ marginBottom: '20px', textAlign: 'center', fontSize: '20px' }}>Update Package</h2>
         <div style={{ marginBottom: '10px' }}>
           <label>Package ID:</label>
