@@ -44,8 +44,13 @@ const AddPaymentForm = () => {
   };
 
   return (
-    <div>
-      <h2>Add Payment</h2>
+    <div className="outer-container">
+    <div className="form-container">
+     <div className="left-side-image">
+        <img src="https://img.freepik.com/free-vector/concept-credit-card-payment-landing-page_52683-24923.jpg?t=st=1713593684~exp=1713597284~hmac=f595e1fb1d2891a487ada302c017ff0316d94c0f9ba23a954114a57d2267dcaf&w=740" alt="Left Side Image" />
+      </div>
+      <div className="form-wrapper">
+        <h2>Add Payment</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label>User ID:</label>
@@ -61,7 +66,7 @@ const AddPaymentForm = () => {
         </div>
         <div>
           <label>Date:</label>
-          <input type="text" name="Date" value={formData.Date} onChange={handleChange} />
+          <input type="date" name="Date" value={formData.Date} onChange={handleChange} />
         </div>
         <div>
           <label>Invoice Number:</label>
@@ -88,6 +93,8 @@ const AddPaymentForm = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      </div>
+    </div>
     </div>
   );
 };
