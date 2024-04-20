@@ -55,8 +55,11 @@ const PaymentList = () => {
           id="searchUserId"
           value={searchUserId}
           onChange={handleSearchChange}
+          style={{ marginLeft: '10px', padding: '5px', borderRadius: '5px', border: '1px solid #ccc' }}
         />
+        <br />
       </div>
+      <br />
       <table>
         <thead>
           <tr>
