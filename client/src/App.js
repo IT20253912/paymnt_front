@@ -115,6 +115,7 @@ import AddPayment from './components/PaymentManagement/Addpayment';
 import AddPaymentn from './components/PaymentManagement/Addpaymentn'; 
 import ViewPayment from './components/PaymentManagement/Viewpayment'; 
 import DeletePayment from './components/PaymentManagement/Deletepayment'; 
+import Viewpackages from './components/PaymentManagement/Viewpackages'; 
 
 function App() {
   return (
@@ -184,6 +185,7 @@ function App() {
           <Route path='/addpaymentn' element={<AddPaymentn />} />
           <Route path='/viewpayment' element={<ViewPayment />} />
           <Route path='/payment' element={<DeletePayment />} />
+          <Route path='/viewpackages' element={<Viewpackages />} />
         </Routes>
         <br />
         <Footer />
