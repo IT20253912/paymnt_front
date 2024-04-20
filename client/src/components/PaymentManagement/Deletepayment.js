@@ -4,10 +4,21 @@ import axios from 'axios';
 
 const PaymentList = () => {
   const [uniquePayments, setUniquePayments] = useState([]);
+  const [searchUserId, setSearchUserId] = useState('');
+  const [filteredPayments, setFilteredPayments] = useState([]);
 
   useEffect(() => {
     fetchPayments();
   }, []);
+
+  useEffect(() => {
+    if (searchUserId.trim() === '') {
+      setFilteredPayments(uniquePayments);
+    } else {
+      const filtered = uniquePayments.filter(payment => payment.UserID.toLowerCase().includes(searchUserId.toLowerCase()));
+      setFilteredPayments(filtered);
+    }
+  }, [searchUserId, uniquePayments]);
 
   const fetchPayments = async () => {
     try {
@@ -15,6 +26,7 @@ const PaymentList = () => {
       const uniquePaymentIDs = [...new Set(response.data.map(payment => payment.paymentID))];
       const uniquePaymentList = response.data.filter(payment => uniquePaymentIDs.includes(payment.paymentID));
       setUniquePayments(uniquePaymentList);
+      setFilteredPayments(uniquePaymentList);
     } catch (error) {
       console.error('Error fetching payments:', error);
     }
@@ -29,9 +41,22 @@ const PaymentList = () => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    setSearchUserId(e.target.value);
+  };
+
   return (
     <div>
       <h2>All Payments</h2>
+      <div>
+        <label htmlFor="searchUserId">Search by User ID:</label>
+        <input
+          type="text"
+          id="searchUserId"
+          value={searchUserId}
+          onChange={handleSearchChange}
+        />
+      </div>
       <table>
         <thead>
           <tr>
@@ -43,14 +68,16 @@ const PaymentList = () => {
           </tr>
         </thead>
         <tbody>
-          {uniquePayments.map((payment) => (
+          {filteredPayments.map((payment) => (
             <tr key={payment.paymentID}>
               <td>{payment.UserID}</td>
               <td>{payment.paymentID}</td>
               <td>{payment.packageID}</td>
               <td>{payment.Amount}</td>
               <td>
-                <button onClick={() => handleDelete(payment.paymentID)}>Delete</button>
+                <button 
+                style={{ backgroundColor: 'red', color: 'white', border: 'none', padding: '5px 10px', borderRadius: '5px' }}
+                onClick={() => handleDelete(payment.paymentID)}>Delete</button>
               </td>
             </tr>
           ))}
