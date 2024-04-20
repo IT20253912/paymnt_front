@@ -66,75 +66,77 @@ function PackageList() {
   };
 
   return (
-    <div>
-      <h1>Package List</h1>
-      <table>
+    <div style={{ fontFamily: 'Arial, sans-serif', padding: '20px' }}>
+      <h1 style={{ textAlign: 'center', fontSize: '24px', marginBottom: '20px' }}>Package List</h1>
+      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
-            <th>Package ID</th>
-            <th>Package Name</th>
-            <th>Package Type</th>
-            <th>Description</th>
-            <th>No. of Photographers</th>
-            <th>No. of Videographers</th>
-            <th>No. of Photos</th>
-            <th>Price</th>
-            <th>Actions</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Package ID</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Package Name</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Package Type</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Description</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>No. of Photographers</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>No. of Videographers</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>No. of Photos</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Price</th>
+            <th style={{ padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#f0f0f0', textAlign: 'left' }}>Actions</th>
           </tr>
         </thead>
         <tbody>
           {packages.map(pkg => (
             <tr key={pkg._id}>
-              <td>{pkg.packageID}</td>
-              <td>{pkg.packageName}</td>
-              <td>{pkg.packageType}</td>
-              <td>{pkg.Description}</td>
-              <td>{pkg.No_of_photographers}</td>
-              <td>{pkg.No_of_videographers}</td>
-              <td>{pkg.No_of_photos}</td>
-              <td>${pkg.Price}</td>
-              <td>
-                <button onClick={() => handleDelete(pkg.packageID)}>Delete</button>
-                <button onClick={() => setUpdatedPackage(pkg)}>Update</button>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.packageID}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.packageName}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.packageType}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.Description}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.No_of_photographers}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.No_of_videographers}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>{pkg.No_of_photos}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>${pkg.Price}</td>
+              <td style={{ padding: '10px', borderBottom: '1px solid #ddd', textAlign: 'center' }}>
+                <button style={{ cursor: 'pointer', padding: '5px 10px', border: 'none', backgroundColor: '#dc3545', color: 'white', borderRadius: '5px' }} onClick={() => handleDelete(pkg.packageID)}>Delete</button>
+                <button style={{ cursor: 'pointer', padding: '5px 10px', border: 'none', backgroundColor: '#007bff', color: 'white', borderRadius: '5px', marginLeft: '5px' }} onClick={() => setUpdatedPackage(pkg)}>Update</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <h2>Update Package</h2>
-      <div>
-        <label>Package ID:</label>
-        <input type="text" name="packageID" value={updatedPackage.packageID} onChange={handleChange} disabled />
+      <div style={{ border: '1px solid #ccc', borderRadius: '5px', padding: '20px', marginTop: '20px' }}>
+        <h2 style={{ marginBottom: '20px', textAlign: 'center', fontSize: '20px' }}>Update Package</h2>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Package ID:</label>
+          <input type="text" name="packageID" value={updatedPackage.packageID} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} disabled />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Package Name:</label>
+          <input type="text" name="packageName" value={updatedPackage.packageName} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Package Type:</label>
+          <input type="text" name="packageType" value={updatedPackage.packageType} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Description:</label>
+          <input type="text" name="Description" value={updatedPackage.Description} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>No. of Photographers:</label>
+          <input type="number" name="No_of_photographers" value={updatedPackage.No_of_photographers} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>No. of Videographers:</label>
+          <input type="number" name="No_of_videographers" value={updatedPackage.No_of_videographers} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>No. of Photos:</label>
+          <input type="number" name="No_of_photos" value={updatedPackage.No_of_photos} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <div style={{ marginBottom: '10px' }}>
+          <label>Price:</label>
+          <input type="number" name="Price" value={updatedPackage.Price} onChange={handleChange} style={{ width: '100%', padding: '8px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc' }} />
+        </div>
+        <button style={{ display: 'block', width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }} onClick={handleUpdate}>Update Package</button>
       </div>
-      <div>
-        <label>Package Name:</label>
-        <input type="text" name="packageName" value={updatedPackage.packageName} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Package Type:</label>
-        <input type="text" name="packageType" value={updatedPackage.packageType} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Description:</label>
-        <input type="text" name="Description" value={updatedPackage.Description} onChange={handleChange} />
-      </div>
-      <div>
-        <label>No. of Photographers:</label>
-        <input type="number" name="No_of_photographers" value={updatedPackage.No_of_photographers} onChange={handleChange} />
-      </div>
-      <div>
-        <label>No. of Videographers:</label>
-        <input type="number" name="No_of_videographers" value={updatedPackage.No_of_videographers} onChange={handleChange} />
-      </div>
-      <div>
-        <label>No. of Photos:</label>
-        <input type="number" name="No_of_photos" value={updatedPackage.No_of_photos} onChange={handleChange} />
-      </div>
-      <div>
-        <label>Price:</label>
-        <input type="number" name="Price" value={updatedPackage.Price} onChange={handleChange} />
-      </div>
-      <button onClick={handleUpdate}>Update Package</button>
     </div>
   );
 }
