@@ -114,6 +114,7 @@ import EditPhotoAlbum from './components/EventManagement/editPhotoAlbum';
 import AddPayment from './components/PaymentManagement/Addpayment'; 
 import AddPaymentn from './components/PaymentManagement/Addpaymentn'; 
 import ViewPayment from './components/PaymentManagement/Viewpayment'; 
+import DeletePayment from './components/PaymentManagement/Deletepayment'; 
 
 function App() {
   return (
@@ -182,6 +183,7 @@ function App() {
           <Route path='/addpayment' element={<AddPayment />} />
           <Route path='/addpaymentn' element={<AddPaymentn />} />
           <Route path='/viewpayment' element={<ViewPayment />} />
+          <Route path='/payment' element={<DeletePayment />} />
         </Routes>
         <br />
         <Footer />
