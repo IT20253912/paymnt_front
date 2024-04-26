@@ -117,6 +117,13 @@ import ViewPayment from './components/PaymentManagement/Viewpayment';
 import DeletePayment from './components/PaymentManagement/Deletepayment'; 
 import Viewpackages from './components/PaymentManagement/Viewpackages'; 
 import Editpackages from './components/PaymentManagement/Editpackage'; 
+import Mainpackages from './components/PaymentManagement/Mainpackages'; 
+import Weddingpackages from './components/PaymentManagement/Weddingpackages'; 
+import Partpackages from './components/PaymentManagement/Partpackages'; 
+import Graduationpackages from './components/PaymentManagement/Graduationpackages'; 
+import Otherpackages from './components/PaymentManagement/Otherpackages'; 
+
+
 
 function App() {
   return (
@@ -188,6 +195,12 @@ function App() {
           <Route path='/payment' element={<DeletePayment />} />
           <Route path='/viewpackages' element={<Viewpackages />} />
           <Route path='/editpackages' element={<Editpackages />} />
+          <Route path='/mainpackages' element={<Mainpackages />} />
+
+          <Route path='/weddingpackages' element={<Weddingpackages />} />
+          <Route path='/partypackages' element={<Partpackages />} />
+          <Route path='/graduationpackages' element={<Graduationpackages />} />
+          <Route path='/otherpackages' element={<Otherpackages />} />
         </Routes>
         <br />
         <Footer />
