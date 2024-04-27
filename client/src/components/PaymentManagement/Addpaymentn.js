@@ -55,6 +55,35 @@ const AddPaymentForm = () => {
     }
   };
 
+  // Function to render payment details based on selected method
+  const renderPaymentDetails = () => {
+    switch (formData.PaymentMethod) {
+      case 'card':
+        return (
+          <div>
+            <h3>Card Payment Details</h3>
+            {/* Add input fields for card payment details */}
+          </div>
+        );
+      case 'paypal':
+        return (
+          <div>
+            <h3>PayPal Payment Details</h3>
+            {/* Add input fields for PayPal details */}
+          </div>
+        );
+      case 'bankTransfer':
+        return (
+          <div>
+            <h3>Bank Transfer Details</h3>
+            {/* Add input fields for bank transfer details */}
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="outer-container">
       <div className="form-container">
@@ -99,10 +128,11 @@ const AddPaymentForm = () => {
               <label>Payment Method:</label>
               <select name="PaymentMethod" value={formData.PaymentMethod} onChange={handleChange}>
                 <option value="card">Card</option>
-                <option value="cash">Cash</option>
+                <option value="paypal">PayPal</option>
                 <option value="bankTransfer">Bank Transfer</option>
               </select>
             </div>
+            {renderPaymentDetails()}
             <button type="submit">Submit</button>
           </form>
         </div>
