@@ -122,6 +122,7 @@ import Weddingpackages from './components/PaymentManagement/Weddingpackages';
 import Partpackages from './components/PaymentManagement/Partpackages'; 
 import Graduationpackages from './components/PaymentManagement/Graduationpackages'; 
 import Otherpackages from './components/PaymentManagement/Otherpackages'; 
+import Refundform from './components/PaymentManagement/Refund'; 
 
 
 
@@ -201,6 +202,7 @@ function App() {
           <Route path='/partypackages' element={<Partpackages />} />
           <Route path='/graduationpackages' element={<Graduationpackages />} />
           <Route path='/otherpackages' element={<Otherpackages />} />
+          <Route path='/refund' element={<Refundform />} />
         </Routes>
         <br />
         <Footer />
