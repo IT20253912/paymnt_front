@@ -123,6 +123,7 @@ import Partpackages from './components/PaymentManagement/Partpackages';
 import Graduationpackages from './components/PaymentManagement/Graduationpackages'; 
 import Otherpackages from './components/PaymentManagement/Otherpackages'; 
 import Refundform from './components/PaymentManagement/Refund'; 
+import Refundview from './components/PaymentManagement/Refundview'; 
 
 
 
@@ -203,6 +204,7 @@ function App() {
           <Route path='/graduationpackages' element={<Graduationpackages />} />
           <Route path='/otherpackages' element={<Otherpackages />} />
           <Route path='/refund' element={<Refundform />} />
+          <Route path='/refundview' element={<Refundview />} />
         </Routes>
         <br />
         <Footer />
