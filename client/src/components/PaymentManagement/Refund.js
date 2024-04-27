@@ -24,11 +24,40 @@ export default class Refund extends Component {
   };
 
   handleRefund = () => {
-    // Implement refund logic here, using this.state.comment and this.state.paymentDetails
-    // For simplicity, let's just log the refund comment and payment details to console
-    console.log('Refund Comment:', this.state.comment);
-    console.log('Payment Details:', this.state.paymentDetails);
-    // You can then proceed with your refund logic (e.g., sending refund request to the server)
+    const { comment, paymentDetails } = this.state;
+    const refundData = {
+      UserID: paymentDetails.UserID,
+      paymentID: paymentDetails.paymentID,
+      packageID: paymentDetails.packageID,
+      Date: paymentDetails.Date,
+      InvoiceNumber: paymentDetails.InvoiceNumber,
+      Amount: paymentDetails.Amount,
+      Advance_or_Full: paymentDetails.Advance_or_Full,
+      PaymentMethod: paymentDetails.PaymentMethod,
+      Comment: comment
+    };
+
+    fetch('http://localhost:4001/api/refund/refund/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(refundData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to add refund');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Refund successfully added:', data);
+      // Optionally, you can reset the comment field or show a success message
+    })
+    .catch(error => {
+      console.error('Error adding refund:', error);
+      // Optionally, you can show an error message to the user
+    });
   };
 
   render() {
